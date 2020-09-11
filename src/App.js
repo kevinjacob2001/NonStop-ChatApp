@@ -41,8 +41,9 @@ function App() {
  
   return (
     <div className="App">
-      <h1>Non Stop!🚀</h1>
-     <h2>Welcome {username}</h2>
+      <h1>NonStop.kj🚀</h1>
+      <h7>A full stack React app tied in with Firestore as backend, developed by Kevin Jacob</h7>
+     <h3>Welcome {username}!😃</h3>
 
       <form className="app__form" onSubmit={sendMessage}>
     
