@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <h1>NonStop.kj🚀</h1>
-      <h7>A full stack React app tied in with Firestore as backend, developed by Kevin Jacob</h7>
+      <h7>A full stack React Chat app tied in with Firestore as the backend, developed by 𝐊𝐞𝐯𝐢𝐧 𝐉𝐚𝐜𝐨𝐛</h7>
      <h3>Welcome {username}!😃</h3>
 
       <form className="app__form" onSubmit={sendMessage}>
@@ -52,7 +52,7 @@ function App() {
         <Input className="app__input" placeholder="Enter the message" value={input} onChange={(event)=>setInput(event.target.value)} />
         
         <IconButton className="app__iconButton" variant="contained" color="primary" disabled={!input} onClick={sendMessage}>
-          <SendIcon/>
+        <SendIcon/>
         </IconButton>
         
        
