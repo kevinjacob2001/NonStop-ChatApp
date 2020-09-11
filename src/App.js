@@ -6,7 +6,8 @@ import './App.css';
 import {db} from './firebase';
 import FlipMove from 'react-flip-move';
 import firebase from 'firebase';
-import SendIcon from '@material-ui/icons'
+import SendIcon from '@material-ui/icons/Send'
+import {IconButton} from '@material-ui/core'
 
 import Message from './Components/Message';
 
@@ -17,7 +18,7 @@ function App() {
   const [username,setUsername]=useState("")
 
   useEffect(()=>{
-    db.collection("messages").orderBy("timestamp","asc").onSnapshot((snapshot)=>{
+    db.collection("messages").orderBy("timestamp","desc").onSnapshot((snapshot)=>{
       setMessages(snapshot.docs.map((doc)=>({id:doc.id,message:doc.data()})))
     })
   },[])
@@ -48,7 +49,12 @@ function App() {
       <FormControl>
         <InputLabel >Enter a message...</InputLabel>
         <Input value={input} onChange={(event)=>setInput(event.target.value)} />
-        <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
+        
+        <IconButton  variant="contained" color="primary" disabled={!input} onClick={sendMessage}>
+          <SendIcon/>
+        </IconButton>
+        
+       
 </FormControl>
 
 </form>
