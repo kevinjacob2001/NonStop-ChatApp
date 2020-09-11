@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {FormControl,Input,InputLabel} from '@material-ui/core';
 import './App.css';
 
-
+import Message from './Components/Message';
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
               <h3>{message}</h3>
               )
         })}
+        <Message/>
 
       </form>
     
