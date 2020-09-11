@@ -1,7 +1,10 @@
   
 import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
+import {FormControl,Input,InputLabel} from '@material-ui/core';
 import './App.css';
+
+
 
 
 function App() {
@@ -19,14 +22,21 @@ function App() {
   return (
     <div className="App">
       <h1>Non Stop!🚀</h1>
+
       <form onSubmit={sendMessage}>
-      <input value={input} onChange={(event)=>setInput(event.target.value)}/>
-      <Button variant="outlined" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
-          <div>{messages.map((message)=>{
-            return(
-            <h3>{message}</h3>
-            )
-      })}</div>
+
+      <FormControl>
+        <InputLabel >Enter a message...</InputLabel>
+        <Input value={input} onChange={(event)=>setInput(event.target.value)} />
+        <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
+      </FormControl>
+
+         {messages.map((message)=>{
+              return(
+              <h3>{message}</h3>
+              )
+        })}
+
       </form>
     
     </div>
