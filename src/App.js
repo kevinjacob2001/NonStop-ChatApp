@@ -1,6 +1,6 @@
   
 import { Button } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {FormControl,Input,InputLabel} from '@material-ui/core';
 import './App.css';
 
@@ -10,7 +10,11 @@ import Message from './Components/Message';
 function App() {
   const [input,setInput]=useState("")
   const [messages,setMessages]=useState(["Wassup?","Yoo guys!!!"])
-  console.log(messages);
+  const [username,setUsername]=useState("")
+
+useEffect(()=>{
+  console.log("Hello")
+},[])
 
   const sendMessage=(e)=>{
     e.preventDefault();
@@ -24,8 +28,7 @@ function App() {
       <h1>Non Stop!🚀</h1>
 
       <form onSubmit={sendMessage}>
-
-      <FormControl>
+       <FormControl>
         <InputLabel >Enter a message...</InputLabel>
         <Input value={input} onChange={(event)=>setInput(event.target.value)} />
         <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
@@ -37,8 +40,6 @@ function App() {
          )
           )
           }
-     
-
       </form>
     
     </div>
