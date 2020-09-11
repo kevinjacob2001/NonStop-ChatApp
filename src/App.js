@@ -15,13 +15,15 @@ function App() {
   return (
     <div className="App">
       <h1>Non Stop!🚀</h1>
+      <form onSubmit={sendMessage}>
       <input value={input} onChange={(event)=>setInput(event.target.value)}/>
       <button disabled={!input} onClick={sendMessage}> Send message</button>
           <div>{messages.map((message)=>{
             return(
-            <li>{message}</li>
+            <h3>{message}</h3>
             )
       })}</div>
+      </form>
     </div>
   );
 }
