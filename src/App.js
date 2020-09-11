@@ -31,12 +31,13 @@ function App() {
         <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
       </FormControl>
 
-         {messages.map((message)=>{
-              return(
-              <h3>{message}</h3>
-              )
-        })}
-        <Message/>
+         {
+         messages.map((message)=>(
+              <Message message={message}/>
+         )
+          )
+          }
+     
 
       </form>
     
