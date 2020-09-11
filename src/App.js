@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import {FormControl,Input,InputLabel} from '@material-ui/core';
 import './App.css';
 import {db} from './firebase';
+import FlipMove from 'react-flip-move';
 import firebase from 'firebase';
 
 import Message from './Components/Message';
@@ -16,7 +17,7 @@ function App() {
 
   useEffect(()=>{
     db.collection("messages").orderBy("timestamp","asc").onSnapshot((snapshot)=>{
-      setMessages(snapshot.docs.map((doc)=>doc.data()))
+      setMessages(snapshot.docs.map((doc)=>({id:doc.id,data:doc.data()})))
     })
   },[])
 
@@ -41,18 +42,22 @@ function App() {
       <h1>Non Stop!🚀</h1>
      <h2>Welcome {username}</h2>
       <form onSubmit={sendMessage}>
-       <FormControl>
-        <InputLabel >Enter a message...</InputLabel>
-        <Input value={input} onChange={(event)=>setInput(event.target.value)} />
-        <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
-      </FormControl>
+      
 
+<FlipMove>
          {
          messages.map((message)=>(
-              <Message username={username} message={message}/>
+              <Message  username={username} message={message}/>
          )
           )
           }
+</FlipMove>
+
+<FormControl>
+        <InputLabel >Enter a message...</InputLabel>
+        <Input value={input} onChange={(event)=>setInput(event.target.value)} />
+        <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
+</FormControl>
       </form>
     
     </div>
