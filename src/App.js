@@ -6,7 +6,7 @@ import './App.css';
 import {db} from './firebase';
 import FlipMove from 'react-flip-move';
 import firebase from 'firebase';
-import SendIcon from '@material-ui/icons/Send'
+import SendIcon from '@material-ui/icons/Send';
 import {IconButton} from '@material-ui/core'
 
 import Message from './Components/Message';
@@ -24,7 +24,7 @@ function App() {
   },[])
 
   useEffect(()=>{ 
-   setUsername(prompt("Please enter your name")); //run some code here.
+   setUsername(prompt("Hey there! Welcome to NonStop.kj. Please enter your username!")); //run some code here.
   },[])                  //useEffect is to run based on condition
 
 
