@@ -17,7 +17,7 @@ function App() {
 
   useEffect(()=>{
     db.collection("messages").orderBy("timestamp","asc").onSnapshot((snapshot)=>{
-      setMessages(snapshot.docs.map((doc)=>({id:doc.id,data:doc.data()})))
+      setMessages(snapshot.docs.map((doc)=>({id:doc.id,message:doc.data()})))
     })
   },[])
 
@@ -41,23 +41,24 @@ function App() {
     <div className="App">
       <h1>Non Stop!🚀</h1>
      <h2>Welcome {username}</h2>
-      <form onSubmit={sendMessage}>
-      
+
+      <form className="app__form" onSubmit={sendMessage}>
+      <FormControl>
+        <InputLabel >Enter a message...</InputLabel>
+        <Input value={input} onChange={(event)=>setInput(event.target.value)} />
+        <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
+</FormControl>
 
 <FlipMove>
          {
-         messages.map((message)=>(
-              <Message  username={username} message={message}/>
+         messages.map(({message,id})=>(
+              <Message username={username} message={message}/>
          )
           )
           }
 </FlipMove>
 
-<FormControl>
-        <InputLabel >Enter a message...</InputLabel>
-        <Input value={input} onChange={(event)=>setInput(event.target.value)} />
-        <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
-</FormControl>
+
       </form>
     
     </div>
