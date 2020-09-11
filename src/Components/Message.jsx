@@ -4,7 +4,7 @@ import React from 'react';
 function Message(props){
     return(
         <h2>
-           {props.message}
+           {props.username}: {props.message}
         </h2>
     )
 }

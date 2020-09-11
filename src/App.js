@@ -11,7 +11,7 @@ function App() {
   const [input,setInput]=useState("")
   const [messages,setMessages]=useState([
     {username:"Kevin",text:"Hai there"},
-    {username:"Sonny",text:"Goodmorning!"}
+    {username:"Sonny",text:"Good morning!"}
   ])
   const [username,setUsername]=useState("")
 
@@ -21,7 +21,7 @@ function App() {
 
   const sendMessage=(e)=>{
     e.preventDefault();
-    setMessages([...messages,input]);
+    setMessages([...messages,{username:username,text:input}]);
     setInput("")
   }
 
