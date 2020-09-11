@@ -12,9 +12,9 @@ function App() {
   const [messages,setMessages]=useState(["Wassup?","Yoo guys!!!"])
   const [username,setUsername]=useState("")
 
-useEffect(()=>{
-  console.log("Hello")
-},[])
+  useEffect(()=>{ 
+   setUsername(prompt("Please enter your name")); //run some code here.
+  },[])                  //useEffect is to run based on condition
 
   const sendMessage=(e)=>{
     e.preventDefault();
@@ -26,7 +26,7 @@ useEffect(()=>{
   return (
     <div className="App">
       <h1>Non Stop!🚀</h1>
-
+  <h2>Welcome {username}</h2>
       <form onSubmit={sendMessage}>
        <FormControl>
         <InputLabel >Enter a message...</InputLabel>
