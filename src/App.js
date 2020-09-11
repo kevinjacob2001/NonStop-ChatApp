@@ -3,21 +3,26 @@ import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import {FormControl,Input,InputLabel} from '@material-ui/core';
 import './App.css';
+import {db} from './firebase';
 
 import Message from './Components/Message';
 
 
 function App() {
   const [input,setInput]=useState("")
-  const [messages,setMessages]=useState([
-    {username:"Kevin",text:"Hai there"},
-    {username:"Sonny",text:"Good morning!"}
-  ])
+  const [messages,setMessages]=useState([])
   const [username,setUsername]=useState("")
+
+  useEffect(()=>{
+    db.collection("messages").onSnapshot((snapshot)=>{
+      setMessages(snapshot.docs.map((doc)=>doc.data()))
+    })
+  },[])
 
   useEffect(()=>{ 
    setUsername(prompt("Please enter your name")); //run some code here.
   },[])                  //useEffect is to run based on condition
+
 
   const sendMessage=(e)=>{
     e.preventDefault();
