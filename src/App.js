@@ -24,7 +24,7 @@ function App() {
   },[])
 
   useEffect(()=>{ 
-   setUsername(prompt("Hey there! Welcome to NonStop.kj. Please enter your username!")); //run some code here.
+   setUsername(prompt("Hey there! Welcome to 𝐍𝐨𝐧𝐒𝐭𝐨𝐩.𝐤𝐣, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐞𝐧𝐭𝐞𝐫 𝐲𝐨𝐮𝐫 𝐧𝐚𝐦𝐞!")); //run some code here.
   },[])                  //useEffect is to run based on condition
 
 
