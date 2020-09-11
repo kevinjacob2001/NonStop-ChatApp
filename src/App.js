@@ -3,10 +3,11 @@ import './App.css';
 
 function App() {
   const [input,setInput]=useState("")
-  const [messages,setMessages]=useState(["hai","hello"])
+  const [messages,setMessages]=useState(["Wassup?","Yoo guys!!!"])
   console.log(messages);
 
-  const sendMessage=()=>{
+  const sendMessage=(e)=>{
+    e.preventDefault();
     setMessages([...messages,input]);
     setInput("")
   }
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Non Stop!🚀</h1>
-      <form onSubmit={sendMessage}>
+      <form onSubmit={(e)=>sendMessage}>
       <input value={input} onChange={(event)=>setInput(event.target.value)}/>
       <button disabled={!input} onClick={sendMessage}> Send message</button>
           <div>{messages.map((message)=>{
@@ -24,6 +25,7 @@ function App() {
             )
       })}</div>
       </form>
+    
     </div>
   );
 }
