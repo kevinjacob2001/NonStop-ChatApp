@@ -9,7 +9,10 @@ import Message from './Components/Message';
 
 function App() {
   const [input,setInput]=useState("")
-  const [messages,setMessages]=useState(["Wassup?","Yoo guys!!!"])
+  const [messages,setMessages]=useState([
+    {username:"Kevin",text:"Hai there"},
+    {username:"Sonny",text:"Goodmorning!"}
+  ])
   const [username,setUsername]=useState("")
 
   useEffect(()=>{ 
@@ -26,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1>Non Stop!🚀</h1>
-  <h2>Welcome {username}</h2>
+     <h2>Welcome {username}</h2>
       <form onSubmit={sendMessage}>
        <FormControl>
         <InputLabel >Enter a message...</InputLabel>
@@ -36,7 +39,7 @@ function App() {
 
          {
          messages.map((message)=>(
-              <Message message={message}/>
+              <Message username={message.username} message={message.text}/>
          )
           )
           }
