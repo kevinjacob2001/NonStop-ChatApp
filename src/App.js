@@ -6,7 +6,7 @@ import './App.css';
 import {db} from './firebase';
 import FlipMove from 'react-flip-move';
 import firebase from 'firebase';
-
+import SendIcon from '@material-ui/icons'
 
 import Message from './Components/Message';
 
