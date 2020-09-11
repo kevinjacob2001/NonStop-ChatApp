@@ -1,0 +1,15 @@
+.App{
+  text-align: center;
+}
+
+
+.app__form{
+  padding: 20px;
+position: fixed;
+bottom: 0;
+z-index: 1;
+background-color: #e9e9e9;
+
+width: 100%;
+margin: 20px;
+}

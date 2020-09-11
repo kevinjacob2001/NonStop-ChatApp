@@ -7,6 +7,7 @@ import {db} from './firebase';
 import FlipMove from 'react-flip-move';
 import firebase from 'firebase';
 
+
 import Message from './Components/Message';
 
 
@@ -43,11 +44,14 @@ function App() {
      <h2>Welcome {username}</h2>
 
       <form className="app__form" onSubmit={sendMessage}>
+    
       <FormControl>
         <InputLabel >Enter a message...</InputLabel>
         <Input value={input} onChange={(event)=>setInput(event.target.value)} />
         <Button variant="contained" color="primary" disabled={!input} onClick={sendMessage}> Send message</Button>
 </FormControl>
+
+</form>
 
 <FlipMove>
          {
@@ -59,7 +63,7 @@ function App() {
 </FlipMove>
 
 
-      </form>
+
     
     </div>
   );
